@@ -18,7 +18,7 @@ void main() async {
   }
 
   if (Platform.isAndroid) {
-    await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
+    await InAppWebViewController.setWebContentsDebuggingEnabled(true);
   }
 
   runApp(MaterialApp(home: MyApp()));
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: Uri.parse("http://localhost:8080"),
+              url: WebUri.uri(Uri.parse("http://localhost:8080")),
             ),
           ),
         ),
